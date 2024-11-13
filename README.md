@@ -28,4 +28,4 @@
 
     * De-compression
 
-![info1](screenshots/Screenshot 2024-11-12 224735.png)
+![screenshot](page.png)
