@@ -1,7 +1,4 @@
-/* 
-	Author : Samyak Jain
-	Created on : 30 June 2020
-*/
+
 // import { MinHeap } from './heap_implementation.js';
 // export { Codec };
 class Codec {
@@ -64,7 +61,7 @@ class Codec {
         }
         if (mp.size === 0) {
             let final_string = "zer#";
-            let output_message = "Compression complete and file sent for download" + '\n' + "Compression Ratio : " + (data.length / final_string.length);
+            let output_message = "Compression complete and file downloading...." + '\n' + "Compression Ratio : " + (data.length / final_string.length);
             return [final_string, output_message];
         }
         if (mp.size === 1) {
@@ -74,17 +71,14 @@ class Codec {
                 value = v;
             }
             let final_string = "one" + '#' + key + '#' + value.toString();
-            let output_message = "Compression complete and file sent for download" + '\n' + "Compression Ratio : " + (data.length / final_string.length);
+            let output_message = "Compression complete and file downloading...." + '\n' + "Compression Ratio : " + (data.length / final_string.length);
             return [final_string, output_message];
         }
         for (let [key, value] of mp) {
             this.heap.push([value, key]);
         }
 
-        /// alternate way
-        // mp.forEach(function (value, key) {
-        //     console.log([value, key]);
-        // })
+        
         while (this.heap.size() >= 2) {
             let min_node1 = this.heap.top();
             this.heap.pop();
@@ -118,7 +112,7 @@ class Codec {
         let tree_string = this.make_string(huffman_tree);
         let ts_length = tree_string.length;
         let final_string = ts_length.toString() + '#' + padding_length.toString() + '#' + tree_string + encoded_data;
-        let output_message = "Compression complete and file sent for download" + '\n' + "Compression Ratio : " + (data.length / final_string.length);
+        let output_message = "Compression complete and file downloading...." + '\n' + "Compression Ratio : " + (data.length / final_string.length);
         return [final_string, output_message];
     }
 
@@ -132,7 +126,7 @@ class Codec {
         }
         if (temp === "zer") {
             let decoded_data = "";
-            let output_message = "Decompression complete and file sent for download";
+            let output_message = "Decompression complete and file downloading....";
             return [decoded_data, output_message];
         }
         if (temp === "one") {
@@ -150,7 +144,7 @@ class Codec {
             for (let i = 0; i < str_len; i++) {
                 decoded_data += one_char;
             }
-            let output_message = "Decompression complete and file sent for download";
+            let output_message = "Decompression complete and file downloading....";
             return [decoded_data, output_message];
 
         }
@@ -209,7 +203,7 @@ class Codec {
                 node = huffman_tree;
             }
         }
-        let output_message = "Decompression complete and file sent for download";
+        let output_message = "Decompression complete and file downloading....";
         return [decoded_data, output_message];
     }
 }
