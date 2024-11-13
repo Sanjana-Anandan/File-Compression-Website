@@ -28,4 +28,4 @@
 
     * De-compression
 
-![screenshot](page.png)
+
